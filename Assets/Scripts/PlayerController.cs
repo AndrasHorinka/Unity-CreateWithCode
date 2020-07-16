@@ -19,6 +19,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * Speed);
+
+        if (Speed < 80)
+        {
+            Speed = Speed + Time.deltaTime * 10;
+        }
+
     }
 }
 
