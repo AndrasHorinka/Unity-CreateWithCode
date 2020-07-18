@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerControllerX : MonoBehaviour
 {
@@ -11,7 +9,8 @@ public class PlayerControllerX : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        rotationSpeed = 100.0f;
+        speed = 15.0f;
     }
 
     // Update is called once per frame
