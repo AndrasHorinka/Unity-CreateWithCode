@@ -7,6 +7,12 @@ public class PlayerController : MonoBehaviour
     private float HorizontalInput;
     private float VerticalInput;
 
+    public Camera mainCamera;
+    public Camera hoodCamera;
+    public KeyCode switchKey;
+    public string HorizontalController;
+    public string VerticalController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +24,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        HorizontalInput = Input.GetAxis("Horizontal");
-        VerticalInput = Input.GetAxis("Vertical");
+        HorizontalInput = Input.GetAxis(HorizontalController);
+        VerticalInput = Input.GetAxis(VerticalController);
 
         transform.Translate(Vector3.forward * Time.deltaTime * Speed * VerticalInput);
         transform.Rotate(Vector3.up * Time.deltaTime * TurnSpeed * HorizontalInput);
@@ -27,6 +33,12 @@ public class PlayerController : MonoBehaviour
         if (Speed < 80)
         {
             Speed = Speed + Time.deltaTime * 10;
+        }
+
+        if (Input.GetKeyDown(switchKey))
+        {
+            mainCamera.enabled = !mainCamera.enabled;
+            hoodCamera.enabled = !hoodCamera.enabled;
         }
 
     }
